@@ -1,0 +1,129 @@
+<h1>{{title}}</h1>
+
+
+<hr />
+
+
+<h2>String Interpolation</h2>
+<h2>{{'Hola Mundo H2 '.repeat(3)}}</h2>
+<p>3 + 3 = {{3+3}}</p>
+<br />
+
+<div class='background-red'>
+  <h3>Hola! soy {{name}} {{lastName}} y tengo {{age}}</h3>
+  <img src={{img}} alt="imagen avatar" />
+  <p>Haz click <a href={{link}} target="_blank">AQUI</a></p>
+</div>
+<br />
+
+
+<hr />
+
+
+<h2>Property [Binding]</h2>
+<p>es la manera que dispone Angular para controlar y modificar las propiedades de los distintos elementos de HTML. Para
+  esto, simplemente utiliza los corchetes [] para poder modificar dinámicamente ese atributo desde el controlador.</p>
+
+<h3>Utilidades</h3>
+<p>El atributo src de la etiqueta `img` para modificar dinámicamente una imagen.</p>
+<p>El atributo href de un `a` para modificar un enlace.</p>
+<p>El atributo value de un `input` para autocompletar un valor de un formulario.</p>
+<p>El atributo disable de un `input` para habilitar/deshabilitar un campo de un formulario.</p>
+<br />
+
+
+<button [disabled]="btnDisabled">ENVIAR</button>
+<br />
+<input type="text" [value]="person.name" />
+<br />
+<progress max="50" [value]="person.age"></progress>
+<br />
+<img class="img-small" [src]="person.avatar" />
+<br />
+
+
+<hr />
+
+
+<h2>Event [Binding]</h2>
+<p>A lo igual que el Property Binding nos permite modificar el valor de los atributos de los elementos HTML desde el
+  controlador, el Event Binding permite controlar los eventos que suceden en estos elementos. El clic de un botón,
+  detectar cambios en un campo, el envío de un formulario, entre otros eventos. Para esto utiliza los paréntesis () para
+  el bindeo de la propiedad del elemento.
+</p>
+<br />
+
+
+<button [disabled]="btnDisabled">ENVIAR</button>
+<br />
+<button (click)="toggleButton()">Cambiar</button>
+<br />
+
+<button (click)="decreaseAge()">-</button>
+<a>Edad: {{person.age}}</a>
+<button (click)="increaseAge()">+</button>
+<br />
+
+
+<hr />
+
+
+<h2>Otros eventos que puedes escuchar</h2>
+<p>Además del evento clic, seguramente el más utilizado, hay otros eventos como el change para detectar cambios en un
+  campo de formulario, el evento scroll para detectar el desplazamiento horizontal/vertical del usuario en el navegador,
+  onKeyUp o onKeyDown para detectar cuando el usuario aprieta o deja de apretar un botón de su teclado.
+
+  La importancia del Event Binding en Angular está dada por la posibilidad de comunicar el componente y la vista, el
+  código TS con el código HTML, intercambiando datos entre ellos.
+
+  Puedes enviarle al controlador el evento completo que se produce en la vista. Para esto, solo declara un parámetro
+  $event en el método que se encuentra escuchando el evento.
+</p>
+<br />
+
+<div class="box" (scroll)="onScroll($event)">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet incidunt magnam ad, voluptatibus ducimus
+    repudiandae qui quaerat officia illum? Quae soluta doloribus nulla velit officiis quaerat aspernatur nihil?
+    Corrupti.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet incidunt magnam ad, voluptatibus ducimus
+    repudiandae qui quaerat officia illum? Quae soluta doloribus nulla velit officiis quaerat aspernatur nihil?
+    Corrupti.
+  </p>
+</div>
+<br />
+
+<p>Nombre: {{person.name}}</p>
+<input type="text" [value]="person.name" (keyup)="changeName($event)">
+<br />
+
+
+<hr />
+
+
+<h2>Data binding con @ngModel</h2>
+<p>El atributo ngModel permite el intercambio de datos de forma bidireccional entre el componente y la vista. Lo que
+  suceda en el componente, se verá reflejado en la vista. Lo que se suceda en la vista, inmediatamente impactará en el
+  componente.
+</p>
+<p>input [(ngModel)]="name"</p>
+<p>ngModel usar tanto los corchetes [] como los paréntesis (). De esta manera, se vuelve bidireccional el intercambio de
+  datos. Si no quieres la bidirección, solo colocamos los corchetes [ngModel] para que la comunicación sea
+  unidireccional.Para utilizar ngModel, es necesario hacer uso e importar Angular Forms. Para esto, dirígete al archivo
+  app.module.ts que es el módulo principal de toda aplicación Angular y agrega lo siguiente:
+</p>
+<!-- <p>
+  import { FormsModule } from '@angular/forms';
+  @NgModule({
+  declarations: [ ... ],
+  imports: [
+  FormsModule
+  ],
+  providers: [],
+  bootstrap: [ ... ]
+  })
+  export class AppModule {}
+</p> -->
+<p>De esta manera puedes importar el módulo FormsModule desde @angular/forms y agregarlo a imports para emplear la
+  propiedad [(ngModel)].
+</p>
+<br />
