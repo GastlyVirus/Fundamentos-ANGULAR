@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './product.model';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,26 @@ export class AppComponent {
     avatar: 'https://www.w3schools.com/howto/img_avatar.png'
   };
 
-  names: string[]= ['gaston', 'blanquita', 'cristian', 'lucca', 'sonia', 'alberto', 'romina', 'leo', 'juana'];
+  names: string[] = ['gaston', 'blanquita', 'cristian', 'lucca', 'sonia', 'alberto', 'romina', 'leo', 'juana'];
+  newName = '';
+  products: Product[] = [
+    {
+      name: "Dado",
+      price: 2500,
+      image: 'https://www.w3schools.com/howto/img_avatar.png',
+      category: 'Azar'
+    },
+    {
+      name: "Bicicleta",
+      price: 155665,
+      image: 'https://www.w3schools.com/howto/img_avatar.png'
+    },
+    {
+      name: "Pelota",
+      price: 10565,
+      image: 'https://www.w3schools.com/howto/img_avatar.png'
+    },
+  ]
 
   toggleButton() {
     this.btnDisabled = !this.btnDisabled;
@@ -43,5 +63,14 @@ export class AppComponent {
     const element = event.target as HTMLInputElement;
     this.person.name = element.value;
     console.log("changeName", element.value);
+  }
+
+  addName() {
+    this.names.push(this.newName);
+    this.newName = '';
+  }
+
+  deleteName(index: number) {
+    this.names.splice(index, 1)
   }
 }

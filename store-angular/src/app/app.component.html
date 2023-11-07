@@ -225,4 +225,165 @@
         <li>1. es</li>
         <li>2. genial!</li>
       </ul> -->
-      <br/>
+      <br />
+
+
+      <input type="text" required [(ngModel)]="newName">
+      <button (click)="addName()">Add name</button>
+      <ul>
+        <li *ngIf="names.length === 0">NO HAY NOMBRES</li>
+        <li *ngFor="let name of names; index as i">
+          {{i}}
+          {{name}}
+          <button (click)="deleteName(i)">Delete</button>
+        </li>
+      </ul>
+
+
+      <hr />
+
+
+      <h2>*ngFor para arrays</h2>
+      <p>
+        Puedes utilizar *ngFor para iterar y mostrar cada propiedad de un objeto. Considera que en el componente tienes
+        un array de objetos que representan a una persona:
+      </p>
+      <!-- @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.scss']
+      })
+      export class AppComponent {
+      peopleArray = [
+      {
+      firstname: 'Freddy',
+      lastname: 'Vega',
+      age: 35
+      },
+      {
+      firstname: 'Nicolas',
+      lastname: 'Molina',
+      age: 29
+      },
+      {
+      firstname: 'Ángela',
+      lastname: 'Ocando',
+      age: 30
+      }
+      ];
+      } -->
+      <p>Itera este array en el HTML e imprimimos el valor de cada propiedad de la siguiente manera:</p>
+      <!-- <ul *ngFor="let person of peopleArray">
+        <li>Nombre: {{ person.firstname }}</li>
+        <li>Apellido: {{ person.lastname }}</li>
+        <li>Edad: {{ person.age }}</li>
+      </ul> -->
+      <p>La variable person guarda temporalmente el objeto en cada iteración, pudiendo acceder a cada valor usando un
+        punto seguido del nombre de la propiedad.</p>
+      <br />
+      <h2>Tipado de objetos con interfaces</h2>
+      <p>El array peopleArray puede contener cualquier cosa, y puede ocasionar comportamientos indeseados en tu
+        aplicación. Puedes crear una interfaz de Personas para tipar los objetos del array y asegurar que todos tengas
+        las mismas propiedades.</p>
+      <!-- interface Person {
+      firstname: string;
+      lastname: string;
+      age: number
+      } -->
+      <p>Tipando el array de la siguiente manera para indicar que el array es de objetos del tipo Persona:</p>
+      <!-- peopleArray: Person[] = [
+      {
+      firstname: 'Freddy',
+      lastname: 'Vega',
+      age: 35
+      },
+      ...
+      ] -->
+      <br />
+
+      <div>
+        <div *ngFor="let product of products">
+          <img class="product-image" [src]="product.image">
+          <h2>${{product.price}}</h2>
+          <p>{{product.name}}</p>
+        </div>
+      </div>
+
+
+      <hr />
+
+
+      <h2>Uso de ngSwitch</h2>
+      <p>
+        Angular también ofrece la sentencia *ngSwitch y *ngSwitchCase para determinar el flujo de control de tu
+        aplicación y qué elemento mostrar entre multiples elementos HTML. Además de utilizar un elemento default con
+        *ngSwitchDefault en caso de que ninguna condición se cumpla.
+      </p>
+      <!-- @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.scss']
+      })
+      export class AppComponent {
+      color: string = 'verde';
+      } -->
+      <h2>Ejemplo de ngSwitchCase</h2>
+      <!-- <div [ngSwitch]="color">
+        <p *ngSwitchCase="'azul'">
+          El color el Azul
+        </p>
+        <p *ngSwitchCase="'verde'">
+          El color el Verde
+        </p>
+        <p *ngSwitchCase="'rojo'">
+          El color el Rojo
+        </p>
+        <p *ngSwitchDefault>
+          No hay ningún color
+        </p>
+      </div> -->
+      <br />
+
+      <input type="text" required [(ngModel)]="person.name" />
+      <div [ngSwitch]="person.name">
+        <p *ngSwitchCase="'gaston'">
+          Tu eres Gaston
+        </p>
+
+        <p *ngSwitchCase="'blanquita'">
+          Tu eres la ultima de la manada
+        </p>
+
+        <p *ngSwitchCase="'cristian'">
+          Tu eres el mas chico de la familia
+        </p>
+
+        <p *ngSwitchCase="'lucca'">
+          Tu tienes los ojos verdes
+        </p>
+
+        <p *ngSwitchDefault>No coincide con ningun nombre de la lista</p>
+      </div>
+      <br />
+
+
+      <hr />
+
+
+      <h2>Angular Devtools</h2>
+      <p>Angular DevTools es una herramienta complementaria para enriquecer tu experiencia de desarrollo en Angular
+        permitiendo la depuración y el debugging de tu aplicación.</p>
+      <p>Solo tienes que instalar la extensión del navegador para Google Chrome.</p>
+      <p>Gracias a estas herramientas, podrás desarrollar y resolver bug más rápido, inspeccionar el valor de las
+        propiedades de tu componente y detectar cuando el usuario realiza alguna acción y se lanza un evento.</p>
+
+      <h2>Otras extensiónes para Angular</h2>
+      <p>También puedes explorar la extensión Augury, una alternativa tanto para Google Chrome como para Mozilla
+        Firefox.</p>
+      <p>TIP: Solo puedes utilizar estas extensiones en un ambiente de desarrollo, no funcionan en producción.</p>
+      <br />
+
+
+
+
+
