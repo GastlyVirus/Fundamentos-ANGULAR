@@ -8,24 +8,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   // title = 'store-angular';
   name = 'Gaston';
-
   lastName = 'Rocha';
-
   age = 30;
-
   title = 'STORE ANGULAR';
-
   img = 'https://www.w3schools.com/howto/img_avatar.png';
-
   link = 'https://www.instagram.com/gastonedgardorocha/';
-
   btnDisabled = true;
-
   person = {
     name: 'Edgardo',
     age: 18,
     avatar: 'https://www.w3schools.com/howto/img_avatar.png'
   };
+
+  names: string[]= ['gaston', 'blanquita', 'cristian', 'lucca', 'sonia', 'alberto', 'romina', 'leo', 'juana'];
 
   toggleButton() {
     this.btnDisabled = !this.btnDisabled;

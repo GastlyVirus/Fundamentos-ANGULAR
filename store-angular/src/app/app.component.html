@@ -100,7 +100,7 @@
 <hr />
 
 
-<h2>Data binding con @ngModel</h2>
+<h2>Data binding con @ngModel (ANGULAR FORMS)</h2>
 <p>El atributo ngModel permite el intercambio de datos de forma bidireccional entre el componente y la vista. Lo que
   suceda en el componente, se verá reflejado en la vista. Lo que se suceda en la vista, inmediatamente impactará en el
   componente.
@@ -127,3 +127,102 @@
   propiedad [(ngModel)].
 </p>
 <br />
+
+<p>Nombre: {{person.name}}</p>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name">
+<p>Valid: {{nameInput.valid}}</p>
+<br />
+
+<p>Age: {{person.age}}</p>
+<input type="number" min="10" max="50" required #ageInput="ngModel" [(ngModel)]="person.age">
+<p>Valid: {{ageInput.valid}}</p>
+<br />
+
+
+<hr />
+
+
+<h2>Uso de *ngIf</h2>
+<p>
+  El condicional “If” es un “If” en Javascript, en Java, en PHP, en Python o en cualquier lenguaje. Angular posibilita
+  utilizar este condicionante embebido en el HTML para mostrar o no un elemento. Su sintaxis es algo particular, está
+  compuesta por un asterisco seguido de las iniciales características de Angular “ng” y la palabra “If”.
+</p>
+<!-- <div *ngIf="isPlatzi">Hola, soy Platzi</div> -->
+<p>Si la condición dentro del “If” se cumple, se mostrará el "div" con el respectivo contenido dentro. De lo contrario,
+  el usuario no verá dicho elemento en el navegador. En la condición del If puedes colocar cualquier operador lógico:
+</p>
+<p>
+  AND(&&), OR(||), MAYOR(>), MENOR(<), IGUAL(==), DISTINTO(!=), MAYOR/IGUAL(>=), MENOR/IGUAL(<=) </p>
+      <h2>
+        If … else
+      </h2>
+      <p>
+        Para usar un else en Angular, la sintaxis es algo especial. Debes crear un template en tu código HTML usando la
+        etiqueta que provee Angular llamada "ng-template" con una Variable de Template, comenzando con #, para hacer
+        referencia a este elemento desde tu If.
+      </p>
+      <!-- <div *ngIf="isPlatzi; else templateElse">Hola, soy Platzi</div>
+      <ng-template #templateElse>
+        <div>No soy Platzi</div>
+      </ng-template> -->
+      <p>
+        Si la condición del If no se cumple, seguido de punto y coma, se coloca la sentencia else haciendo referencia a
+        templateElse, que es el nombre de la variable del template a mostrar en su lugar.
+      </p>
+      <br />
+
+
+      <input type="text" required [(ngModel)]="person.name">
+      <p *ngIf="person.name === 'gaston'">Tú eres {{person.name}} y tienes {{person.age}}</p>
+      <p *ngIf="person.name != 'gaston' && person.age > 20; else myBlock">Tú no eres el elegido</p>
+      <ng-template #myBlock>
+        <p>Bloque de ELSE</p>
+      </ng-template>
+
+
+      <hr />
+
+
+      <h2>Uso de *ngFor</h2>
+      <p>Al igual que con un If, Angular permite iterar un array de números, de cadenas de caracteres o de objetos
+        usando “*ngFor”.Si tienes en tu componente un array de datos:</p>
+      <!-- @Component({
+        selector: 'app-root',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.scss']
+      })
+      export class AppComponent {
+        myArray: string[] = [
+          'Platzi',
+          'es',
+          'genial!'
+        ];
+      } -->
+      <p>Puedes mostrar cada elemento iterando el array en un elemento HTML:</p>
+      <!-- <ul>
+        <li *ngFor="let str of myArray">
+            {{ str }}
+        </li>
+    </ul> -->
+      <p>El *ngFor crea una variable temporal llamada str (o el nombre que más te guste) que contiene cada valor de
+        myArray. Finalmente, utilizando una interpolación, muestras el valor de str.Quedando tu HTML de la siguiente
+        manera:</p>
+      <!-- <ul><li>Platzi</li><li>es</li><li>genial!</li></ul> -->
+      <h2>Índice de iteración</h2>
+      <p>ngFor también cuenta con un índice con el número de iteraciones. Puedes acceder a este número agregando al
+        ngFor index as i de la siguiente manera:</p>
+      <!-- <ul>
+        <li *ngFor="let str of myArray; index as i">
+          {{ i }}. {{ str }}
+        </li>
+      </ul> -->
+      <p>
+        Cada iteración contiene una variable i con el índice que le corresponde. Iniciando desde cero, da como
+        resultado:</p>
+      <!-- <ul>
+        <li>0. Platzi</li>
+        <li>1. es</li>
+        <li>2. genial!</li>
+      </ul> -->
+      <br/>
