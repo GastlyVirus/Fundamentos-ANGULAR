@@ -384,6 +384,47 @@
       <br />
 
 
+      <hr />
 
 
+      <h2>Estilos a la lista de productos</h2>
+      <p>En el decorador de tu componente, verás la propiedad styleUrls donde se hace referencia a la hoja de estilos
+        que el componente utiliza.</p>
+      <!-- @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.scss']
+      })
+      export class AppComponent {
+      ...
+      } -->
+      <p>En este archivo puedes escribir todo el código CSS que tu componente necesita. Por ejemplo, si escogiste SCSS:
+      </p>
+      <!-- div {
+      margin: 15px;
+      h1 {
+      font-family: Arial;
+      font-size: 22px;
+      font-weight: bold;
+      }
+      p {
+      font-family: Arial;
+      font-size: 18px;
+      padding-bottom: 10px;
+      }
+      } -->
+      <h2>Preprocesadores de CSS</h2>
+      <p>Dependiendo el preprocesador que hayas elegido, tus hojas de estilos tendrán una extensión u otra. A excepción
+        de .css si no escogiste utilizar un preprocesador.</p>
+      <p>SCSS(.scss), SASS(.sass), LESS(.less), NINGUNA(.css)</p>
+      <p>TIP: Para escojer otro preprocesador, puedes realizar este cambio manualmente en el archivo ‘angular.json’ en
+        la raíz de tu proyecto</p>
+      <br />
 
+      <div class="products--grid">
+        <div *ngFor="let product of products">
+          <img [src]="product.image">
+          <h2>${{product.price}}</h2>
+          <p>{{product.name}}</p>
+        </div>
+      </div>

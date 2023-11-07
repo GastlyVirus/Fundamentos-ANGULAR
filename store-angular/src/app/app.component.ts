@@ -40,6 +40,16 @@ export class AppComponent {
       price: 10565,
       image: 'https://www.w3schools.com/howto/img_avatar.png'
     },
+    {
+      name: "Bicicleta",
+      price: 155665,
+      image: 'https://www.w3schools.com/howto/img_avatar.png'
+    },
+    {
+      name: "Pelota",
+      price: 10565,
+      image: 'https://www.w3schools.com/howto/img_avatar.png'
+    }
   ]
 
   toggleButton() {
