@@ -612,22 +612,39 @@ submitLogin() {
       <br />
 
       <h1>FORMULARIO</h1>
-      <form>
+      <form (ngSubmit)="onRegister()" #myForm="ngForm">
         <div class="input-group">
           <label for="name">Nombre</label>
-          <input type="text" id="name" [(ngModel)]="register.name">
+          <input type="text" name="name" required id="name" [(ngModel)]="register.name">
           <p>Mensajes de error</p>
         </div>
 
         <div class="input-group">
           <label for="email">Email</label>
-          <input type="text" id="email" [(ngModel)]="register.email">
+          <input type="text" name="email" required id="email" [(ngModel)]="register.email">
           <p>Mensajes de error</p>
         </div>
 
         <div class="input-group">
           <label for="password">password</label>
-          <input type="text" id="password" [(ngModel)]="register.password">
+          <input type="text" name="password" required id="password" [(ngModel)]="register.password">
           <p>Mensajes de error</p>
         </div>
+        <button [disabled]="myForm.invalid" type="submit">Register</button>
       </form>
+      <br />
+
+
+      <hr />
+
+
+      <h2>Despliegue con Firebase Hosting</h2>
+      <p>Puedes realizar tu primer deploy de una aplicación Angular utilizando Firebase.</p>
+      <h3>¿Qué es un deploy?</h3>
+      <p>Un deploy, o despliegue, es el proceso de llevar tu software de un entorno local, a un entorno el cual se pueda
+        acceder a través de internet desde cualquier parte del mundo para estar disponible para su uso.</p>
+      <h3>¿Qué es Firebase?</h3>
+      <p>A lo igual que Angular, Firebase es una plataforma de herramientas para desarrolladores de software
+        desarrollado y mantenido por Google. Puedes utilizarlo para, en unos pocos clics, tener tu primera aplicación en
+        un entorno productivo. Además de otros usos que ofrece el servicio</p>
+      <br />
