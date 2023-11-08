@@ -609,9 +609,25 @@ submitLogin() {
   <button [disabled]="formLogin.invalid" type="submit">Iniciar sesión</button>
 </div>
 ... -->
-<br/>
+      <br />
 
-<h1>FORMULARIO</h1>
-<form>
-  
-</form>
+      <h1>FORMULARIO</h1>
+      <form>
+        <div class="input-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" [(ngModel)]="register.name">
+          <p>Mensajes de error</p>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" [(ngModel)]="register.email">
+          <p>Mensajes de error</p>
+        </div>
+
+        <div class="input-group">
+          <label for="password">password</label>
+          <input type="text" id="password" [(ngModel)]="register.password">
+          <p>Mensajes de error</p>
+        </div>
+      </form>

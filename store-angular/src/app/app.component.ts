@@ -19,6 +19,12 @@ export class AppComponent {
 
   newName = '';
 
+  register = {
+    name: '',
+    email: '',
+    password: ''
+  }
+
   box = {
     width: 100,
     height: 100,
