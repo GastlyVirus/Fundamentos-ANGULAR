@@ -428,3 +428,102 @@
           <p>{{product.name}}</p>
         </div>
       </div>
+      <br />
+
+
+      <hr />
+
+
+      <h2>Class binding</h2>
+      <p>La versatilidad de Angular te permite agregar o quitar clases y estilos a tus elementos HTML a partir de
+        condicionantes. Así como anteriormente utilizaste los corchetes [] para bindear atributos como el [src] de una
+        imagen o el [href] de un enlace, puedes bindear clases para que Angular las agregue o quite dinámicamente si se
+        cumple una condición de la siguiente manera:</p>
+
+      <!-- <div [class.active-color]="isActive">
+      </div> -->
+
+      <p>Imagina que tienes en tu componente una propiedad llamada isActive que agregará la clase active-color si esta
+        es verdadera o quitará la clase si es falsa. Luego ya puedes darle los estilos que más te gusten al elemento
+        HTML en tu hoja de estilos utilizando la clase active-color.</p>
+
+      <h2>Style binding</h2>
+      <p>También puedes añadir estilos inline a los elementos HTML bindeando la propiedad [style] seguido de la
+        propiedad CSS que quieres modificar dinámicamente:</p>
+
+      <!-- <p [style.color]="isActive ? 'blue' : 'red'"></p> -->
+
+      <p>A partir del valor de isActive, dependiendo si este es verdadero o falso, puedes emplear un operador ternario
+        para cambiar el color del párrafo.</p>
+      <br />
+
+      <input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
+      <p class="message-error" [class.invalid]="nameInput2.invalid">
+        El campo es requerido
+      </p>
+      <label>Nombre</label>
+      <input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+      <p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Texto Texto Texto</p>
+      <br />
+
+      <div class="style-width-img">
+        <div>
+          <input type="text" [(ngModel)]="widthImg" />
+        </div>
+        <div>
+          <img [style.width.px]="widthImg" src={{img}} />
+        </div>
+      </div>
+      <br />
+
+
+      <hr />
+
+
+      <h2>NgClass y NgStyle</h2>
+      <p>Con el binding de [class] y [style] puedes agregar clases y estilos fácilmente. Pero se vuelve algo complicado
+        en el caso de que necesites agregar varias clases o modificar muchos estilos. Es por esto que Angular ofrece las
+        directivas ngClass y ngStyle para este propósito.</p>
+      <p>Puedes bindear la directiva [ngStyle] o [ngClass] y pasarle un objeto con cada propiedad o clase que deseas
+        agregar:</p>
+      <!-- <p [ngStyle]="{
+        'color': textColor,
+        'background': textBackground
+    }">
+      </p> -->
+      <p>El operador ternario será tu mejor aliado para agregar o quitar clases y estilos:</p>
+      <!-- <div [ngClass]="isAvailable ? 'active-class' : 'deactivate-class'"></div> -->
+      <p>O puedes usar las Interpolaciones en lugar del binding:</p>
+      <!-- <p ngClass="{{ isAvailable ? 'active-class' : 'deactivate-class' }}"></p> -->
+      <br />
+
+      <input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
+      <hr class="line-error" [ngClass]="{
+        'valid': nameInput4.valid,
+        'invalid': nameInput4.invalid
+      }" />
+      <p class="message-error" [class.invalid]="nameInput4.invalid">
+        El campo es requerido
+      </p>
+      <br />
+
+      <div class="style-width-img">
+        <div>
+          <input type="number" [(ngModel)]="box.width" />
+          <input type="number" [(ngModel)]="box.height" />
+          <input type="color" [(ngModel)]="box.background" />
+        </div>
+        <div>
+          <div [ngStyle]="{
+            'width.px': box.width,
+            'height.px': box.height,
+            'background-color': box.background,
+            'display': 'block'
+          }">
+          </div>
+        </div>
+      </div>
+      <br />
+
+
+      <hr />

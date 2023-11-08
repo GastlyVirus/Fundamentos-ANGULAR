@@ -38,10 +38,37 @@
   }
 }
 
+.message-error {
+  background-color: red;
+  color: #fafafa;
+  opacity: 0;
+  transition: all linear .5s;
+
+  &.invalid {
+    opacity: 1;
+  }
+}
+
+.style-width-img {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.line-error {
+  height: 0;
+  border-bottom: 1px solid;
+  &.valid{
+    border-color: green;
+  };
+  &.invalid{
+    border-color: red;
+  }
+}
+
 @media screen and (min-width: 40em) {
   .products--grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 15px;
+    grid-gap: 1rem;
   }
 }

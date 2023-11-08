@@ -8,6 +8,7 @@ import { Product } from './product.model';
 })
 export class AppComponent {
   // title = 'store-angular';
+  widthImg = 50;
   name = 'Gaston';
   lastName = 'Rocha';
   age = 30;
@@ -15,6 +16,15 @@ export class AppComponent {
   img = 'https://www.w3schools.com/howto/img_avatar.png';
   link = 'https://www.instagram.com/gastonedgardorocha/';
   btnDisabled = true;
+
+  newName = '';
+
+  box = {
+    width: 100,
+    height: 100,
+    background: 'red',
+  };
+
   person = {
     name: 'Edgardo',
     age: 18,
@@ -22,7 +32,7 @@ export class AppComponent {
   };
 
   names: string[] = ['gaston', 'blanquita', 'cristian', 'lucca', 'sonia', 'alberto', 'romina', 'leo', 'juana'];
-  newName = '';
+
   products: Product[] = [
     {
       name: "Dado",
